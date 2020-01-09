@@ -1,0 +1,45 @@
+name: Continuos Integration
+
+on: [push, pull_request]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v1
+      with:
+        submodules: recursive
+    - name: Set up JDK
+      uses: actions/setup-java@v1
+      with:
+        java-version: 11
+
+    - name: Compile Java
+      run: ./gradlew clean compileJava
+    - name: Process Resources
+      run: ./gradlew processResources
+    - name: Test
+      run: ./gradlew test
+    - name: Check style
+      run: ./gradlew check
+    - name: Assemble
+      run: ./gradlew assemble
+    - name: build
+      run: ./gradlew build
+
+  assemble_javadoc:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v1
+      with:
+        submodules: recursive
+    - name: Set up JDK
+      uses: actions/setup-java@v1
+      with:
+        java-version: 11
+
+    - name: Build JavaDoc
+      run: ./gradlew javadoc

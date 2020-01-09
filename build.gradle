@@ -16,6 +16,12 @@ plugins {
     id 'checkstyle'
 }
 
+// Set specific gradle version for wrapper
+// This version is known to work
+wrapper {
+    gradleVersion = '5.6.3'
+}
+
 sourceCompatibility = 11
 targetCompatibility = 11
 

@@ -2,6 +2,9 @@
 
 A tool to create Braille embosser ready text files for generic diagram representations.
 
+## Build status
+[![](../../workflows/Continuos%20Integration/badge.svg)](../../actions?query=workflow%3A%22Continuos+Integration%22)
+
 ## Getting Started
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
@@ -12,8 +15,15 @@ For usage information, please take a look into the [wiki](https://github.com/TUD
 
 You will need the following tools to build the project:
 * JavaJDK >= 11
-* gradle >= 4.4
 * git
+
+Gradle ist used in order to build and test the project.
+This readme assumes you are running a GNU/Linux or Mac machine.
+To run the gradle tool on Microsoft Windows, replace the `./gradlew` call with `gradle`,
+e.g.:
+```
+gradlew jar
+```
 
 #### Build preparation
 
@@ -28,7 +38,7 @@ git submodule update --init --recursive # This will fetch third party dependenci
 
 Just run
 ```
-gradle jar
+./gradlew jar
 ```
 
 to create an executable jar file in `build/libs` which will include all runtime dependencies.
@@ -38,7 +48,7 @@ to create an executable jar file in `build/libs` which will include all runtime 
 
 A simple call of
 ```
-gradle test
+./gradlew test
 ```
 
 will suffice.
@@ -48,7 +58,7 @@ will suffice.
 
 
 ```
-gradle check
+./gradlew check
 ```
 
 will execute the checkstyle plugin which will export any flaws registered.

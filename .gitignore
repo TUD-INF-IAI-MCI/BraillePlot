@@ -1,9 +1,8 @@
 # Gradle
 build
 out
-*gradle*
-!build.gradle
-!integrationTest.gradle
+.gradle/
+
 
 # Liblouis Tables
 src/main/resources/mapping/liblouis
